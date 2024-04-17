@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHERID - Начальная страница юной компании</title>
+    <style>
+        body {
+            font-family: 'Frutiger Aero', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .tooltip {
+            display: none;
+            position: absolute;
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
+            bottom: 40px;
+            left: 10px;
+            border-radius: 5px;
+        }
+
+        .tooltip-text {
+            margin-right: 10px;
+        }
+
+        .close-btn {
+            background-color: transparent;
+            border: none;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .help-btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Мы только основали компанию</h1>
+        <p>Извините, за бездейственный сайт, но мы только основались. Сайт ещё сырой, мы понимаем, но для образования основных функций нам надо выпустить хотя бы 1 модель автомобиля. Мы пытаемся делать автомобили, которые пригодны для использования в наши времена <span class="year" id="current-year"></span>. Если вы хотите что-то посмотреть на моделях, зайдите на этот сайт 13 июня 2024. А пока - что, ждём :-)</p>
+        <footer>
+            <p>CHERID АВТОМОБИЛИ КАЗАХСТАН, 2014-<span class="year" id="current-real-year"></span>. Все права защищены.</p>
+            <div class="tooltip" id="tooltip">
+                <span class="tooltip-text">Справка тоже пока что не работает. Ждите! Обновления сайта будут колосально широкими!</span>
+                <button class="close-btn" onclick="closeTooltip()">Закрыть справочный лист</button>
+            </div>
+            <button class="help-btn" onclick="openTooltip()">?</button>
+        </footer>
+    </div>
+
+    <script>
+        // Отображение текущего года
+        document.getElementById("current-year").textContent = new Date().getFullYear();
+        // Отображение реального года
+        document.getElementById("current-real-year").textContent = new Date().getFullYear();
+
+        function openTooltip() {
+            document.getElementById("tooltip").style.display = "block";
+            document.querySelector(".help-btn").style.display = "none";
+        }
+
+        function closeTooltip() {
+            document.getElementById("tooltip").style.display = "none";
+            document.querySelector(".help-btn").style.display = "block";
+        }
+    </script>
+</body>
+</html>
